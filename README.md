@@ -1,8 +1,10 @@
-# ![hackerrank](../assets/hackerrank.png) HackerRank
+# ![hackerrank](./assets/hackerrank.png) HackerRank
 
-## :desktop_computer: Algorithms implemented in Javascript(Node.js)
+## :desktop_computer: Algorithms implemented by me for HackerRank
 
-:construction: *Under Construction*
+- [Javascript](https://github.com/bruno-fialho/hackerrank/tree/main/javascript)
+
+- :construction: *Under Construction*
 
 This is a personal repository to store algorithms from [HackerRank](https://www.hackerrank.com/) challenges that I have trained so far.
 
