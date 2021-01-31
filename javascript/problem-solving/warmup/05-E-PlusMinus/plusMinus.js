@@ -22,41 +22,20 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the plusMinus function below.
 function plusMinus(arr) {
+    // Declare variables
+    let pos = 0, neg = 0, zero = 0;
+    
     // Get array length
-    const length = arr.length;
+    let length = arr.length;
     
-    // Declare count variables
-    let positiveCount = 0;
-    let negativeCount = 0;
-    let zeroCount = 0;
-    
-    // Count integers
-    for (let i = 0; i < length; i++) {
-        if (arr[i] > 0) {
-            positiveCount++;
-        }
-        else if (arr[i] < 0) {
-            negativeCount++;
-        }
-        else {
-            zeroCount++;
-        }
-    }
-    
-    // Calculate ratios
-    const positiveRatio = positiveCount / length;
+    // Map all array items and count pos, neg and zero
+    arr.map(item => {
+        item > 0 ? pos++ : item < 0 ? neg++ : zero++;
+    })
 
-    const negativeRatio = negativeCount / length;
-    
-    const zeroRatio = zeroCount / length;
-
-    // Print all ratios
-    console.log(positiveRatio.toPrecision(6));
-    console.log(negativeRatio.toPrecision(6));
-    console.log(zeroRatio.toPrecision(6));
-
+    // Print results
+    console.log((pos/length).toFixed(6), '\n', (neg/length).toFixed(6), '\n', (zero/length).toFixed(6))
 }
 
 function main() {

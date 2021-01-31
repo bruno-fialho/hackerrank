@@ -22,20 +22,17 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the compareTriplets function below.
 function compareTriplets(a, b) {
-    let array = [0, 0]
-    
-    for (let i = 0; i < 3; i++) {
-        if (a[i] > b[i]){
-            array[0] += 1
-        }
-        else if (b[i] > a[i]) {
-            array[1] += 1            
-        }
+    let aScore = 0;
+    let bScore = 0;
+
+    const length = a.length;
+
+    for (let i = 0; i < length; i++){
+        if (a[i] > b[i]) aScore++;
+        if (a[i] < b[i]) bScore++;
     }
-        
-    return array
+    return [aScore, bScore]
 }
 
 function main() {

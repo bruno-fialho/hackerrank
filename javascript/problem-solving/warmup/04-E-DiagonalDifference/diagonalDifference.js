@@ -22,29 +22,15 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-/*
- * Complete the 'diagonalDifference' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts 2D_INTEGER_ARRAY arr as parameter.
- */
-
 function diagonalDifference(arr) {
-    const length = arr[0].length;
-
-    let sumLR = 0;
-    let sumRL = 0;
-
-    for (let i = 0; i < length; i++) {
-        sumLR += arr[i][i]
-        sumRL += arr[i][length - 1 - i]
+    let diff = 0;
+    const length = arr.length - 1;
+    
+    for (let i = 0; i < arr.length; i++) {
+        diff += arr[i][i] - arr[i][length - i];
     }
-
-    const absDif = Math.abs(sumLR - sumRL);
-
-    return absDif;
-
-
+    
+    return Math.abs(diff);
 }
 
 function main() {

@@ -24,16 +24,8 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the aVeryBigSum function below.
 function aVeryBigSum(ar) {
-    let sum = 0
-    
-    const length = ar.length
-    
-    for (let i = 0; i < length; i++)
-        sum += ar[i]
-
-    return sum
+    return ar.reduce((a, b) => BigInt(a) + BigInt(b));
 }
 
 function main() {

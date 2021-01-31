@@ -22,18 +22,8 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-/*
- * Complete the simpleArraySum function below.
- */
 function simpleArraySum(ar) {
-    let sum = 0
-    
-    const length = ar.length
-    
-    for (let i = 0; i < length; i++)
-        sum += ar[i]
-
-    return sum
+    return ar.reduce((a, b) => a + b)
 }
 
 function main() {

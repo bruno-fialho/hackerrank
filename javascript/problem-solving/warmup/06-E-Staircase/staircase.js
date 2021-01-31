@@ -22,24 +22,10 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the staircase function below.
 function staircase(n) {
-    // Loop through line
-    for (let j = 0; j < n; j++) {
-        for (let i = 0; i < n; i++) {
-            // Print whitespaces
-            if (i < n - j - 1) {
-                process.stdout.write(" ");
-            }
-            // Print #'s
-            else {
-                process.stdout.write("#");
-            }
-        }
-        
-        // Print new line
-        process.stdout.write("" + '\n');
-    }  
+    for (let i = 1; i <= n; i++) {
+        console.log("#".repeat(i).padStart(n));
+    }
 }
 
 function main() {
