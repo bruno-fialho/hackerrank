@@ -23,7 +23,7 @@ function readLine() {
 }
 
 function simpleArraySum(ar) {
-    return ar.reduce((a, b) => a + b)
+    return ar.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
 
 function main() {

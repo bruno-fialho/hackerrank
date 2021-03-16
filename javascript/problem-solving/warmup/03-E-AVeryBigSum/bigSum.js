@@ -24,8 +24,11 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function aVeryBigSum(ar) {
-    return ar.reduce((a, b) => BigInt(a) + BigInt(b));
+function aVeryBigSum(array) {
+    return array.reduce(
+        (accumulator, currentValue) =>
+            BigInt(accumulator) + BigInt(currentValue)
+    );
 }
 
 function main() {

@@ -22,20 +22,20 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function plusMinus(arr) {
-    // Declare variables
-    let pos = 0, neg = 0, zero = 0;
-    
-    // Get array length
-    let length = arr.length;
-    
-    // Map all array items and count pos, neg and zero
-    arr.map(item => {
-        item > 0 ? pos++ : item < 0 ? neg++ : zero++;
+function plusMinus(array) {
+    let positive = 0, negative = 0, zero = 0;
+
+    let length = array.length;
+
+    array.map(item => {
+        item > 0 ? positive++ : item < 0 ? negative++ : zero++;
     })
 
-    // Print results
-    console.log((pos/length).toFixed(6), '\n', (neg/length).toFixed(6), '\n', (zero/length).toFixed(6))
+    console.log(
+        (positive / length).toFixed(6) + '\n' +
+        (negative / length).toFixed(6) + '\n' +
+        (zero / length).toFixed(6)
+    )
 }
 
 function main() {

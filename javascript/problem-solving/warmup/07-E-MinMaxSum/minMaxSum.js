@@ -22,10 +22,14 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function miniMaxSum(arr) {
-    const sum = arr.reduce((acc, next) => acc + next, 0);
-    
-    console.log(sum - Math.max(...arr), sum - Math.min(...arr));
+function miniMaxSum(array) {
+    const initialValue = 0;
+
+    const sum = array.reduce(
+        (accumulator, currentValue) => accumulator + currentValue, initialValue
+    );
+
+    console.log(sum - Math.max(...array), sum - Math.min(...array));
 }
 
 function main() {

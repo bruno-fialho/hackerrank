@@ -8,11 +8,11 @@ process.stdin.setEncoding('utf-8');
 let inputString = '';
 let currentLine = 0;
 
-process.stdin.on('data', function(inputStdin) {
+process.stdin.on('data', function (inputStdin) {
     inputString += inputStdin;
 });
 
-process.stdin.on('end', function() {
+process.stdin.on('end', function () {
     inputString = inputString.split('\n');
 
     main();
@@ -22,9 +22,14 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-const birthdayCakeCandles = a =>
-    (f => a.filter(v => v === f).length)(Math.max(...a));
-    
+function birthdayCakeCandles(candles) {
+    let tallestCandle = Math.max(...candles);
+
+    let filteredArray = candles.filter(candle => candle == tallestCandle);
+
+    return filteredArray.length;
+}
+
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 

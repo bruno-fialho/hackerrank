@@ -8,11 +8,11 @@ process.stdin.setEncoding('utf-8');
 let inputString = '';
 let currentLine = 0;
 
-process.stdin.on('data', function(inputStdin) {
+process.stdin.on('data', function (inputStdin) {
     inputString += inputStdin;
 });
 
-process.stdin.on('end', function() {
+process.stdin.on('end', function () {
     inputString = inputString.split('\n');
 
     main();
@@ -22,15 +22,15 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function diagonalDifference(arr) {
-    let diff = 0;
-    const length = arr.length - 1;
-    
-    for (let i = 0; i < arr.length; i++) {
-        diff += arr[i][i] - arr[i][length - i];
+function diagonalDifference(array) {
+    let difference = 0;
+    const length = array.length - 1;
+
+    for (let i = 0; i < array.length; i++) {
+        difference += array[i][i] - array[i][length - i];
     }
-    
-    return Math.abs(diff);
+
+    return Math.abs(difference);
 }
 
 function main() {

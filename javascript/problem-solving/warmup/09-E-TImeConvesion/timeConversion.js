@@ -23,13 +23,13 @@ function readLine() {
 }
 
 function timeConversion(s) {
-    const arr = s.slice(0, 8).split(':');
+    const array = s.slice(0, 8).split(':');
 
-    arr[0] = (s.indexOf('PM') > -1) ?
-        (arr[0] == 12) ? arr[0] = '12' : Number(arr[0]) + 12 :
-        (arr[0] == 12) ? '00' : arr[0];
+    array[0] = (s.indexOf('PM') > -1) ?
+        (array[0] == 12) ? array[0] = '12' : Number(array[0]) + 12 :
+        (array[0] == 12) ? '00' : array[0];
 
-   return(arr.join(':'));
+    return (array.join(':'));
 }
 
 function main() {

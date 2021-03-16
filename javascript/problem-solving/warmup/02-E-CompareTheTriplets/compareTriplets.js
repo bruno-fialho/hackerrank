@@ -8,11 +8,11 @@ process.stdin.setEncoding('utf-8');
 let inputString = '';
 let currentLine = 0;
 
-process.stdin.on('data', function(inputStdin) {
+process.stdin.on('data', function (inputStdin) {
     inputString += inputStdin;
 });
 
-process.stdin.on('end', function() {
+process.stdin.on('end', function () {
     inputString = inputString.split('\n');
 
     main();
@@ -28,10 +28,11 @@ function compareTriplets(a, b) {
 
     const length = a.length;
 
-    for (let i = 0; i < length; i++){
+    for (let i = 0; i < length; i++) {
         if (a[i] > b[i]) aScore++;
         if (a[i] < b[i]) bScore++;
     }
+
     return [aScore, bScore]
 }
 
