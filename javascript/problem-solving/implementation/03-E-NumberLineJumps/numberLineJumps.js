@@ -24,21 +24,25 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function kangaroo(x1, v1, x2, v2) {
-    // Get difference of started point
-    const initialDistance = x2 - x1;
-    
-    // Get relative speed
-    const relativeSpeed = v1 - v2;
-    
-    // Calculate if relative distance will be zero in future
-    // If initialDistance is multiple of relativeSpeed
-    const relativeDistanceCanBeZero = initialDistance % relativeSpeed;
-    
-    if (v1 > v2 && relativeDistanceCanBeZero == 0) {
+function kangaroo(
+    firstKangarooPosition,
+    firstKangarooJumpLength,
+    secondKangarooPosition,
+    secondKangarooJumpLength
+) {
+    const initialKangaroosDistance =
+        secondKangarooPosition - firstKangarooPosition;
+
+    const relativeJumpDifference =
+        firstKangarooJumpLength - secondKangarooJumpLength;
+
+    if (
+        firstKangarooJumpLength > secondKangarooJumpLength &&
+        initialKangaroosDistance % relativeJumpDifference == 0
+    ) {
         return "YES";
     }
-    
+
     return "NO";
 }
 

@@ -22,33 +22,26 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the migratoryBirds function below.
 function migratoryBirds(arr) {
-    // Get length of array
-    const length = arr.length;
+    let sorted = arr.sort();
+
+    const length = sorted.length;
+
+    let answer = sorted[0];
+
+    let maxOccur = 1, counter = 0;
     
-    // Create a new array
-    let birdsFrequency = new Array(5).fill(0);
-    
-    // Count the frequency of each type of bird
     for (let i = 0; i < length; i++) {
-        birdsFrequency[arr[i] - 1] += 1;
-    }
-    
-    // Create variables to store maximum count and result
-    let max = 0;
-    let result;
-    
-    // Search the most commom type of bird
-    for (let i = 0; i < 5; i++) {
-        if (birdsFrequency[i] > max) {
-            result = i + 1;
-            max = birdsFrequency[i];
+        counter = (sorted[i] === sorted[i-1]) ? counter + 1 : 0;
+
+        if (counter > maxOccur) {
+            answer = sorted[i];
+
+            maxOccur = counter;
         }
     }
-    
-    // Return the result
-    return result;
+
+    return answer;
 }
 
 function main() {

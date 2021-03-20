@@ -20,31 +20,12 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the bonAppetit function below.
 function bonAppetit(bill, k, b) {
-    // Get length of bill
-    const length = bill.length;
+    const totalBill = (bill.reduce((sum, cost) => sum + cost ,0));
+    
+    const annaAmmount = (totalBill - bill[k]) / 2;
 
-    // Set a variable to store partial bill
-    let partialBill = 0;
-    
-    // Add values (except bill[k]) to partial bill
-    for (let i = 0; i < length; i++) {
-        if (i != k) {
-            partialBill += bill[i];
-        }
-    }
-    
-    // Divide bill in 2 parts to get Anna amount
-    const annaAmount = partialBill / 2;
-    
-    // If the value is OK (print Bon Appettit) 
-    if (annaAmount >= b) {
-        console.log("Bon Appetit");
-    // If Anna paid more(print difference)
-    } else {
-        console.log(b - annaAmount);
-    }
+    console.log(annaAmmount < b ? b - fairlyCost : "Bon Appetit");
 }
 
 function main() {

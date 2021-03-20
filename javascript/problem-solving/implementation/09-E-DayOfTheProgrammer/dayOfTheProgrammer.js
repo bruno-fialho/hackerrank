@@ -22,31 +22,22 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the dayOfProgrammer function below.
 function dayOfProgrammer(year) {
-    // If year == 1918 => special case (-15 days in february)
-    if (year == 1918) {
-        return "26.09.1918";
-    
-    // If year < 1918 => Julian calendar
-    } else if (year >= 1700 && year < 1918) {
-        // Check if leap year
+    if (year < 1918) {
         if (year % 4 == 0) {
             return "12.09." + year;
-        // If not leap
         } else {
             return "13.09." + year;
         }
     
-    // If year > 1918 => Gregorian calendar
-    } else if (year > 1918 && year <= 2700) {
-        // Check if leap year
+    } else if (year > 1918) {
         if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
             return "12.09." + year;
-        // If not leap year
         } else {
             return "13.09." + year;
         }
+    } else {
+        return "26.09.1918";
     }
 }
 

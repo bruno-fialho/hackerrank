@@ -22,32 +22,26 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function countApplesAndOranges(s, t, a, b, apples, oranges) {
-    // Get number of apples and oranges
-    const falledApples = apples.length;
-    const falledOranges = oranges.length;
-    
-    // Create variables to counter apples and oranges on house
-    let countApplesOnHouse = 0;
-    let countOrangesOnHouse = 0;
-    
-    // Loop through apples
-    for (let i = 0; i < falledApples; i++) {
-        if (a + apples[i] >= s & a + apples[i] <= t) {
-            countApplesOnHouse++;
-        }
-    }
-    
-    console.log(countApplesOnHouse);
-    
-    // Loop through oranges
-    for (let i = 0; i < falledOranges; i++) {
-        if (b + oranges[i] >= s & b + oranges[i] <= t) {
-            countOrangesOnHouse++;
-        }
-    }
-    
-    console.log(countOrangesOnHouse);   
+function countApplesAndOranges(
+    houseStartPosition,
+    houseEndPosition,
+    appleTreePosition,
+    orangeTreePosition,
+    apples,
+    oranges
+) {
+    let apple_count = apples.filter(appleDistanceFromTree =>
+        appleTreePosition + appleDistanceFromTree >= houseStartPosition &&
+        appleTreePosition + appleDistanceFromTree <= houseEndPosition
+    ).length;
+
+    let orange_count = oranges.filter(orangeDistanceFromTree =>
+        orangeTreePosition + orangeDistanceFromTree >= houseStartPosition &&
+        orangeTreePosition + orangeDistanceFromTree <= houseEndPosition
+    ).length;
+
+    console.log(apple_count);
+    console.log(orange_count);
 }
 
 function main() {

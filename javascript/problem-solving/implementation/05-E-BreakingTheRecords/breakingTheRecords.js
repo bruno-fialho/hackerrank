@@ -24,21 +24,13 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the breakingRecords function below.
 function breakingRecords(scores) {
-    // Set variables to count breaking records
-    let countBreakingMax = 0;
-    let countBreakingMin = 0;
+    let [bestScore, worstScore] = [scores[0], scores[0]];
+    let [countBreakingMax, countBreakingMin] = [0, 0];
+
+    const totalGames = scores.length;
     
-    // Get length of scores
-    const totalScores = scores.length;
-    
-    // Set best and worst scores to first game score
-    let worstScore = scores[0];
-    let bestScore = scores[0];
-    
-    // Start counting breaking records
-    for (let i = 1; i < totalScores; i++) {
+    for (let i = 1; i < totalGames; i++) {
         if (scores[i] > bestScore) {
             bestScore = scores[i];
             countBreakingMax++;
@@ -48,7 +40,6 @@ function breakingRecords(scores) {
         }
     }
     
-    // Return an array with breaking records
     return [countBreakingMax, countBreakingMin];
 }
 

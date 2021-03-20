@@ -19,32 +19,22 @@ process.stdin.on('end', function() {
 });
 
 function readLine() {
-    return inputString[currentLine++];
+    return inputString[currentLine++];  
 }
 
-// Complete the birthday function below.
-function birthday(s, d, m) {
-    // Get length of chocolate bar
-    const length = s.length;
+function birthday(s, d, m) { 
+    let count = 0
+
+    let length = s.length;
+
+    for(let i = 0; i < length; i++) {
+        let arr = s.slice(i, m + i);
     
-    // Set a variable to count possible divisions
-    let count = 0;
-    
-    for (let i = 0; i < length - m + 1; i++) {
-        // Set a variable to get sum of chocolate squares
-        let sum = 0;
-        
-        // For each square, sum the subsequent squares until the length of m
-        for (let j = i; j < i + m; j++) {
-            sum += s[j];
-        }
-        
-        // If sum is equal to day of month add to count
-        if (sum == d) {
+        if(arr.reduce((a, b) => a + b) === d) {           
             count++;
         }
     }
-    
+
     return count;
 }
 

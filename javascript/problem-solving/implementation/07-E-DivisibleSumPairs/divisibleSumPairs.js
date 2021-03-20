@@ -24,7 +24,6 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the divisibleSumPairs function below.
 function divisibleSumPairs(n, k, ar) {
     let count = 0;
     
