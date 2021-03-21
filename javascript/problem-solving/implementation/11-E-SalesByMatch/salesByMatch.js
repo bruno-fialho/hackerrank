@@ -24,35 +24,22 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-// Complete the sockMerchant function below.
 function sockMerchant(n, ar) {
-    // Create an array for all possible colors
-    let colorsCount = new Array(100).fill(0);
+    let sorted = ar.sort();
 
-    // Add total of each color to colorsCount
-    for (let i = 0; i < n; i++) {
-        colorsCount[ar[i] - 1] += 1;
-    }
-    
-    // Create a variable count pairs
-    let pairsCount = 0;
-    
-    // Loop colorsCount
-    for (let i = 0; i < 100; i++) {
-        // If number of this color socks is less than 2 => do nothing
-        if (colorsCount[i] < 2) {
-            continue;
-        }
-        // If divisible by 2, add division to pairsCount
-        else if (colorsCount[i] % 2 == 0) {
-            pairsCount += (colorsCount[i] / 2);
-        // If not divisible by 2, subtract 1 before division
+    let count = 0;
+
+    let i = 1;
+    while (i < n) {
+        if (sorted[i] === sorted[i - 1]) {
+            count++;
+            i += 2;
         } else {
-            pairsCount += ((colorsCount[i] - 1) / 2);
+            i += 1;
         }
     }
-    
-    return pairsCount;
+
+    return count;
 }
 
 function main() {

@@ -24,16 +24,18 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function catAndMouse(x, y, z) {
+function catAndMouse(firstCatPosition, secondCatPosition, mousePosition) {
+    const firstCatToMouseDistance = Math.abs(firstCatPosition - mousePosition);
     
-    if (Math.abs(x - z) < Math.abs(y - z)) {
+    const secondCatToMouseDistance = Math.abs(secondCatPosition - mousePosition);
+
+    if (firstCatToMouseDistance < secondCatToMouseDistance) {
         return "Cat A";
-    } else if (Math.abs(x - z) > Math.abs(y - z)) {
+    } else if (firstCatToMouseDistance > secondCatToMouseDistance) {
         return "Cat B";
     } else {
         return "Mouse C";
     }
-
 }
 
 function main() {

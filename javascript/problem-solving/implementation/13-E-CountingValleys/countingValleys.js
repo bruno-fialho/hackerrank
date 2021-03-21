@@ -22,28 +22,22 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function countingValleys(steps, path) {
-    // Declare variables
-    let level = 0, valleys = 0;
-    
-    // Loop through path
-    for (let i = 0; i < steps; i++) {
-      
-        // if step down
-        if (path[i] == 'D') {
-            level--;
-        
-        // if step up
-        } else if (path[i] == 'U') {
-            level++;
 
-            // if step up and sea level == 0 => end of a valley
-            if (level == 0) {
+function countingValleys(steps, path) {
+    let actualLevel = 0, valleys = 0;
+
+    for (let i = 0; i < steps; i++) {
+        if (path[i] === 'U') {
+            actualLevel++;
+            
+            if (actualLevel === 0) {
                 valleys++;
             }
+        } else {
+            actualLevel--;
         }
     }
-    
+
     return valleys;
 }
 

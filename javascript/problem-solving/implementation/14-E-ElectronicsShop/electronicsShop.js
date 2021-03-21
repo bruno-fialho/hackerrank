@@ -22,34 +22,23 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function getMoneySpent(keyboards, drives, b) {
-    // Get keyboards and drives lengths
-    const keyboadsLength = keyboards.length;
-    const drivesLength = drives.length;
+function getMoneySpent(keyboards, drives, budget) {
+    let maxValue = -1;
     
-    // Declare a variable to store most expensive
-    let mostExpensive = 0;
-    
-    // Loop all keyboard + drive combinations
-    for (let i = 0; i < keyboadsLength; i++) {
-        for (let j = 0; j < drivesLength; j++) {
-            // Check if the price is on budget
-            if (keyboards[i] + drives[j] <= b) {
-                // Update mostExpensive if sum is more than mostExpensive
-                if (keyboards[i] + drives[j] > mostExpensive) {
-                    mostExpensive = keyboards[i] + drives[j];
-                }
+    for(let keyboardPrice of keyboards){
+        for(let drivePrice of drives){
+            let keyboardPlusDrivePrice = keyboardPrice + drivePrice;
+            
+            if (keyboardPlusDrivePrice > maxValue && 
+                keyboardPlusDrivePrice <= budget){
+                    maxValue = keyboardPlusDrivePrice;
             }
         }
     }
     
-    // Check if there is at least one combination on budget
-    if (mostExpensive == 0) {
-        return -1;
-    } else {
-        return mostExpensive;        
-    }
+    return maxValue;
 }
+
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
