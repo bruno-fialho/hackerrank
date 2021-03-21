@@ -31,12 +31,12 @@ function migratoryBirds(arr) {
 
     let maxOccur = 1, counter = 0;
     
-    for (let i = 0; i < length; i++) {
+    for (let i = 1; i < length; i++) {
         counter = (sorted[i] === sorted[i-1]) ? counter + 1 : 0;
 
         if (counter > maxOccur) {
             answer = sorted[i];
-
+            
             maxOccur = counter;
         }
     }
